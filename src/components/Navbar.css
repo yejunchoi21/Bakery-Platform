@@ -1,0 +1,40 @@
+.navbar {
+  /*makes eveyrthing in the navbar side by side*/
+  display: flex;
+  /*distributes all remaining space evenly between the container’s items.*/
+  justify-content: space-between;
+  /*centres everything in the navbar vertically so the logo, and the  menu*/
+  align-items: center;
+
+  padding: 20px 8%;
+  background-color: #fffaf5;
+  border-bottom: 1px solid #e8ddd3;
+}
+
+/*so everything under here targets only the navbar-logo classname from the .jsx file*/
+.navbar-logo {
+  margin: 0;
+  color: #6f3f2d;
+  font-family: Georgia, serif;
+  font-size: 28px;
+}
+
+/*targets only the container that holds the <a> not the actuall <a> itself so it changes
+the outside of the words, ie spacing or if their centred*/
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/*the difference is that this specifically targets ones with <a> in it so it onyl changes the words
+ie color underline, etc*/
+.navbar-links a {
+  color: #3d302a;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  color: #b56845;
+}
