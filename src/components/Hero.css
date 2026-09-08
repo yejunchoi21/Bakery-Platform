@@ -1,0 +1,68 @@
+.hero {
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  /*padding adds spacing. so top and bottom 60px space
+  left right 8% spacing*/
+  padding: 60px 8%;
+  background-color: #f4e5d5;
+  
+}
+
+/*used to grow or shrink the container as window resizes*/
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-content p {
+  margin: 0 0 15px;
+  color: #a45c3a;
+  font-size: 18px;
+}
+
+.hero-content h2 {
+  margin: 0 0 25px;
+  color: #3d302a;
+  font-family: Georgia, serif;
+  font-size: 52px;
+  line-height: 1.15;
+}
+
+.hero-content a {
+  display: inline-block;
+  padding: 14px 24px;
+  color: white;
+  background-color: #713f2c;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.hero-content a:hover {
+  background-color: #92563c;
+}
+
+/*KEY NOTE must edit the container. onyl the
+you can edit the content within the container*/
+.hero-image {
+  /*the container of the img not the img itself can resize
+  base on the window size*/
+  flex: 1;
+  /*pairs flex with this */
+  min-width: 0;
+  /*this is what allows you to position the img in the container*/
+  display: flex;
+  /*pushes image to the right edge of container*/
+  justify-content: flex-end;
+
+}
+
+.hero-image img {
+  display: block;
+  height: auto;
+  width: 100%;
+  height: auto;
+  /*make the actual image fit the container above*/
+  object-fit: cover;
+  border-radius: 16px;
+}
