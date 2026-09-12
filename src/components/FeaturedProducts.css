@@ -1,0 +1,66 @@
+.featured-products {
+  padding: 80px 8%;
+  text-align: center;
+  background-color: #fffaf5;
+}
+
+.section-label {
+  margin: 0 0 10px;
+  color: #a45c3a;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.featured-products h2 {
+  margin: 0 0 40px;
+  color: #3d302a;
+  font-family: Georgia, serif;
+  font-size: 40px;
+}
+
+.product-list {
+  display: flex;
+  gap: 25px;
+}
+
+.product-card {
+  flex: 1;
+  padding: 30px;
+  text-align: left;
+  background-color: white;
+  border: 1px solid #e8ddd3;
+  border-radius: 12px;
+}
+
+.product-card h3 {
+  margin: 0 0 12px;
+  color: #3d302a;
+  font-size: 22px;
+}
+
+.product-card p {
+  color: #6e625c;
+  line-height: 1.5;
+}
+
+.product-card .product-price {
+  color: #713f2c;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*no need for flex since the image ins't horiztontally caligned with another container or words*/
+.product-image {
+  width: 90%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/*the actual image commands should all be the same in all css files*/
+.product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

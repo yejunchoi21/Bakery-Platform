@@ -47,6 +47,7 @@ you can edit the content within the container*/
 .hero-image {
   /*the container of the img not the img itself can resize
   base on the window size*/
+  /*flex helps resize the image with the hero-content section. so use it when image is paired with writing horizontally*/
   flex: 1;
   /*pairs flex with this */
   min-width: 0;
