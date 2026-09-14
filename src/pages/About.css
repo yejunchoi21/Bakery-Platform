@@ -1,0 +1,56 @@
+.about-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 8%;
+  background-color: #fffaf5;
+}
+
+.about-header {
+  flex: 1;
+  text-align: left;
+}
+
+.about-header > p:first-child {
+  margin: 0 0 10px;
+  color: #a45c3a;
+  font-weight: bold;
+}
+
+.about-header h1 {
+  margin: 0 0 20px;
+  color: #3d302a;
+  font-family: Georgia, serif;
+  font-size: 48px;
+}
+
+.about-header > p:last-child {
+  margin: 0;
+  color: #6e625c;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-header {
+    text-align: center;
+  }
+}

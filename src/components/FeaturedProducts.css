@@ -64,3 +64,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+/*helps resize for smaller screens*/
+@media (max-width: 768px) {
+  .product-list {
+    flex-direction: column;
+  }
+}

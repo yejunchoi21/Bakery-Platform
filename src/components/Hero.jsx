@@ -2,8 +2,6 @@ import "./Hero.css";
 import breadImage from "../assets/images/image1.png"
 function Hero(){
     return(
-
-
     <main className="hero">
         <div className="hero-content">
             <p>Fresh goods</p>
