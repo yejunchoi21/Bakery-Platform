@@ -13,6 +13,8 @@ function Menu() {
   return (
     /*each page jsx file should use a main */
     /*use sections to section off unreleated content*/
+    /*The button command allows to behave and do actions vs links 
+    which only changes the pages */
     <main className="menu-page">
          
       <section className="menu-header">
@@ -31,8 +33,11 @@ function Menu() {
           </div>
           <p>Flaky, buttery, and freshly baked.</p>
           <p className="menu-product-price">$4.50</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
-
+        
         <article className="menu-card">
           <h3>Country Sourdough</h3>
           <div className="menu-product-image">
@@ -40,6 +45,9 @@ function Menu() {
           </div>
           <p>Slow-fermented bread with a crisp crust.</p>
           <p className="menu-product-price">$8.00</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
 
         <article className="menu-card">
@@ -49,6 +57,9 @@ function Menu() {
           </div>
           <p>Creamy cheesecake with a caramelized top.</p>
           <p className="menu-product-price">$7.50</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
 
         <article className="menu-card">
@@ -58,6 +69,9 @@ function Menu() {
           </div>
           <p>Soft, sweet, and freshly glazed.</p>
           <p className="menu-product-price">$3.50</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
 
         <article className="menu-card">
@@ -67,6 +81,9 @@ function Menu() {
           </div>
           <p>A crisp crust with a light and airy centre.</p>
           <p className="menu-product-price">$5.50</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
 
         <article className="menu-card">
@@ -76,6 +93,9 @@ function Menu() {
           </div>
           <p>Soft and lightly sweetened homemade bread.</p>
           <p className="menu-product-price">$6.50</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
 
         <article className="menu-card">
@@ -85,6 +105,9 @@ function Menu() {
           </div>
           <p>Soft bread filled with rich chocolate flavour.</p>
           <p className="menu-product-price">$5.00</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
 
         <article className="menu-card">
@@ -94,6 +117,9 @@ function Menu() {
           </div>
           <p>Soft and fluffy buns with a golden top.</p>
           <p className="menu-product-price">$4.00</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
 
         <article className="menu-card">
@@ -103,6 +129,9 @@ function Menu() {
           </div>
           <p>Chewy bagels with a lightly crisp exterior.</p>
           <p className="menu-product-price">$3.50</p>
+          <button className="add-cart" type="button">
+            Add to cart
+          </button>
         </article>
       </section>
     </main>

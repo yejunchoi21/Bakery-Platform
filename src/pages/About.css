@@ -25,6 +25,15 @@
   font-size: 48px;
 }
 
+
+.about-header p{
+  margin: 0;
+  color: #6e625c;
+  font-size: 30px;
+  line-height: 1.7;
+}
+
+
 .about-header > p:last-child {
   margin: 0;
   color: #6e625c;
@@ -42,6 +51,7 @@
   width: 100%;
   height: auto;
   border-radius: 16px;
+  border: 10px solid #312621;
 }
 
 @media (max-width: 768px) {

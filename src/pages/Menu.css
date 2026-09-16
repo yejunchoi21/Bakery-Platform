@@ -18,6 +18,7 @@
 .menu-header p {
   margin: 0;
   color: #a45c3a;
+  font-size: 25px;
 }
 
 .menu-products {
@@ -79,4 +80,12 @@
   .menu-header h1 {
     font-size: 38px;
   }
+}
+
+.add-cart{
+  padding: 14px 24px;
+  color: black;
+  background-color: #e8ddd3;
+  border-radius: 6px;
+  text-decoration: none;
 }

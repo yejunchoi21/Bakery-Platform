@@ -65,6 +65,14 @@
   object-fit: cover;
 }
 
+.cart{
+  padding: 14px 24px;
+  color: black;
+  background-color: #e8ddd3;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
 /*helps resize for smaller screens*/
 @media (max-width: 768px) {
   .product-list {

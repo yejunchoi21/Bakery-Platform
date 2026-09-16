@@ -6,6 +6,7 @@ import FeaturedProducts from "./components/FeaturedProducts";
 import Footer from "./components/Footer";
 import Menu from "./pages/Menu";
 import About from "./pages/About";
+import Cart from "./pages/Cart";
 
 
 /*these ones will only appear on homepage. hero and featuredrpoducts */
@@ -28,6 +29,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
+
 
       </Routes>
 

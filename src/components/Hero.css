@@ -66,4 +66,5 @@ you can edit the content within the container*/
   /*make the actual image fit the container above*/
   object-fit: cover;
   border-radius: 16px;
+  border: 10px solid #efd699;
 }

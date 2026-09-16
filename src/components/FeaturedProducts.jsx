@@ -17,6 +17,9 @@ function FeaturedProducts() {
           </div>
           <p>Flaky, buttery, and freshly baked.</p>
           <p className="product-price">$4.50</p>
+          <button className="cart" type="button">
+          Add to cart
+          </button>
         </article>
 
         <article className="product-card">
@@ -28,6 +31,9 @@ function FeaturedProducts() {
           </div>
           <p>Slow-fermented bread with a crisp crust.</p>
           <p className="product-price">$8.00</p>
+          <button className="cart" type="button">
+          Add to cart
+          </button>
         </article>
 
         <article className="product-card">
@@ -38,6 +44,9 @@ function FeaturedProducts() {
 
           <p>Creamy cheesecake.</p>
           <p className="product-price">$7.50</p>
+          <button className="cart" type="button">
+          Add to cart
+          </button>
         </article>
       </div>
     </section>
