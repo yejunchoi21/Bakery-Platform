@@ -7,7 +7,8 @@ import Footer from "./components/Footer";
 import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
-
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 function HomePage() {
   return (
     <>
@@ -102,6 +103,8 @@ const [cartItems, setCartItems] = useState(() => {
             />
           }
         />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
       </Routes>
 
       <Footer />

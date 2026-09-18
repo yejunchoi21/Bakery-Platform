@@ -38,3 +38,13 @@ ie color underline, etc*/
 .navbar-links a:hover {
   color: #b56845;
 }
+
+.navbar-links span {
+  color: #3d302a;
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

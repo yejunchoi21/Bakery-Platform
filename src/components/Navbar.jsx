@@ -11,6 +11,12 @@ function Navbar() {
         <Link to="/menu">Menu</Link>
         <Link to="/about">About</Link>
         <Link to="/cart">Cart</Link>
+
+        <div className="auth-links">
+        <Link to="/login">Login</Link>
+        <span>/</span>
+        <Link to="/signup">Sign Up</Link>
+        </div>
       </nav>
     </header>
   );
