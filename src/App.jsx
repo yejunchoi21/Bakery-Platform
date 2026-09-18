@@ -1,7 +1,5 @@
-//creates car storage
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import FeaturedProducts from "./components/FeaturedProducts";
@@ -20,32 +18,65 @@ function HomePage() {
 }
 
 function App() {
-  //creaes an empty array to store the items
-  const [cartItems, setCartItems] = useState([]);
-  //adds item to cart. its a function passes parameter 'product' through the func.
-function addToCart(product) {
-  const existingItem = cartItems.find(
-    (item) => item.id === product.id
-  );
+  // Stores all products currently in the cart and saves if referesh
+const [cartItems, setCartItems] = useState(() => {
+  const savedCart = localStorage.getItem("bakeryCart");
+  return savedCart ? JSON.parse(savedCart) : [];
+});
+    useEffect(() => {
+      localStorage.setItem(
+        "bakeryCart",
+        JSON.stringify(cartItems)
+      );
+    }, [cartItems]);
+  // Adds a new product or increases its quantity
+  function addToCart(product) {
+    setCartItems((currentItems) => {
+      const existingItem = currentItems.find(
+        (item) => item.id === product.id
+      );
 
-  if (existingItem) {
-    const updatedCart = cartItems.map((item) =>
-      item.id === product.id
-        ? { ...item, quantity: item.quantity + 1 }
-        : item
-    );
+      if (existingItem) {
+        return currentItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
 
-    setCartItems(updatedCart);
-  } else {
-    setCartItems([
-      ...cartItems,
-      {
-        ...product,
-        quantity: 1,
-      },
-    ]);
+      return [
+        ...currentItems,
+        {
+          ...product,
+          quantity: 1,
+        },
+      ];
+    });
   }
-}
+
+  // Increases a product's quantity by one
+  function increaseQuantity(productId) {
+    setCartItems((currentItems) =>
+      currentItems.map((item) =>
+        item.id === productId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  }
+
+  // Decreases quantity and removes the product when it reaches zero
+  function decreaseQuantity(productId) {
+    setCartItems((currentItems) =>
+      currentItems
+        .map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  }
 
   return (
     <BrowserRouter>
@@ -56,12 +87,21 @@ function addToCart(product) {
 
         <Route
           path="/menu"
-          //allows menu page to use the addtocart function
           element={<Menu addToCart={addToCart} />}
         />
 
         <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cartItems={cartItems}
+              increaseQuantity={increaseQuantity}
+              decreaseQuantity={decreaseQuantity}
+            />
+          }
+        />
       </Routes>
 
       <Footer />
