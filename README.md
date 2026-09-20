@@ -1,16 +1,34 @@
-# React + Vite
+# Bakeryhouse Ordering Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack bakery website built with React and Supabase. Users can browse bakery products, create an account, sign in, and maintain their own shopping cart.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Responsive bakery website
+- Product menu with images and pricing
+- User signup, login, and logout
+- Authentication sessions
+- User specific shopping carts
+- Add to cart notifications
+- Quantity increase and decrease controls
+- Automatic subtotal, tax, and total calculations
+- Simulated checkout
+- Responsive desktop, tablet, and mobile layouts
 
-## React Compiler
+## Tools and Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- HTML
+- CSS
+- React Router
+- Supabase Authentication
+- Supabase PostgreSQL
+- Git and GitHub
+- Vite
 
-## Expanding the ESLint configuration
+## Database
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The application uses a `cart_items` table to store each signed-in user's cart.
+
+Row Level Security ensures that users can only access and modify their own cart items.
