@@ -1,23 +1,57 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabaseClient";
 import "./Login.css";
 
 function Login() {
-  return (
-    
-    <main className="login-page">
-        <section className="login-card">
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-      <h1>Login</h1>
-        
-    {/* The form groups the username and password fields */}
-      <form className="login-form"> 
-        <label htmlFor="username">Username</label>
-        <input id="username" type="text"></input>
-        
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password"></input>
-      <button type="submit">Log In</button>
-      </form>
-     </section>
+  const navigate = useNavigate();
+
+  async function handleLogin(event) {
+    event.preventDefault();
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      alert("Logged in successfully!");
+      navigate("/");
+    }
+  }
+
+  return (
+    <main className="login-page">
+      <section className="login-card">
+        <h1>Login</h1>
+
+        <form className="login-form" onSubmit={handleLogin}>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          />
+
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            required
+          />
+
+          <button type="submit">Log In</button>
+        </form>
+      </section>
     </main>
   );
 }

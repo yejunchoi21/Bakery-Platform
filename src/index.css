@@ -1,0 +1,12 @@
+.cart-toast {
+  position: fixed;
+  top: 100px;
+  right: 25px;
+  z-index: 1000;
+  padding: 16px 22px;
+  color: white;
+  background-color: #713f2c;
+  border-radius: 8px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
