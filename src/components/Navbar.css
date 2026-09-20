@@ -1,38 +1,54 @@
 .navbar {
-  /*makes eveyrthing in the navbar side by side*/
+  /* Makes everything in the navbar sit side by side */
   display: flex;
-  /*distributes all remaining space evenly between the container’s items.*/
+
+  /* Places remaining space between the logo and links */
   justify-content: space-between;
-  /*centres everything in the navbar vertically so the logo, and the  menu*/
+
+  /* Centres everything vertically */
   align-items: center;
 
-  padding: 20px 8%;
+  gap: 20px;
+
+  /* Padding and spacing resize with the screen */
+  padding: clamp(15px, 2vw, 20px) clamp(20px, 8vw, 150px);
+
   background-color: #fffaf5;
   border-bottom: 1px solid #e8ddd3;
+  box-sizing: border-box;
 }
 
-/*so everything under here targets only the navbar-logo classname from the .jsx file*/
+/* Controls the Bakeryhouse logo */
 .navbar-logo {
   margin: 0;
   color: #6f3f2d;
   font-family: Georgia, serif;
-  font-size: 28px;
+
+  /* Minimum 24px, responsive size, maximum 28px */
+  font-size: clamp(24px, 2.5vw, 28px);
+
+  /* Prevents Bakeryhouse from splitting into two lines */
+  white-space: nowrap;
 }
 
-/*targets only the container that holds the <a> not the actuall <a> itself so it changes
-the outside of the words, ie spacing or if their centred*/
+/* Controls the container holding all navbar links */
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+
+  /* Link spacing resizes with the screen */
+  gap: clamp(12px, 2vw, 30px);
 }
 
-/*the difference is that this specifically targets ones with <a> in it so it onyl changes the words
-ie color underline, etc*/
+/* Controls the actual link words */
 .navbar-links a {
   color: #3d302a;
-  font-size: 16px;
+
+  /* Minimum 14px and maximum 16px */
+  font-size: clamp(14px, 1.4vw, 16px);
+
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .navbar-links a:hover {
@@ -47,6 +63,7 @@ ie color underline, etc*/
   display: flex;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
 }
 
 .account-menu {
@@ -58,32 +75,87 @@ ie color underline, etc*/
   color: #3d302a;
   background: none;
   border: none;
-  font: inherit;
+  font-family: inherit;
+  font-size: clamp(14px, 1.4vw, 16px);
   cursor: pointer;
+}
+
+.signed-in-button:hover {
+  color: #b56845;
 }
 
 .account-dropdown {
   position: absolute;
   top: 30px;
   right: 0;
+  z-index: 100;
+
   min-width: 120px;
   padding: 10px;
+
   background-color: white;
   border: 1px solid #e8ddd3;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  z-index: 10;
 }
 
 .account-dropdown button {
   width: 100%;
   padding: 8px;
+
   color: #3d302a;
   background: none;
   border: none;
+
   cursor: pointer;
 }
 
 .account-dropdown button:hover {
   background-color: #fffaf5;
+}
+
+/* Tablet screens */
+@media (max-width: 850px) {
+  .navbar {
+    padding: 18px 5%;
+  }
+
+  .navbar-links {
+    gap: 16px;
+  }
+}
+
+/* Phone screens */
+@media (max-width: 650px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px 5%;
+  }
+
+  /* Moves Bakeryhouse onto its own centred row */
+  .navbar-logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Allows links to move onto another line if needed */
+  .navbar-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+}
+
+/* Very small phone screens */
+@media (max-width: 400px) {
+  .navbar-links {
+    gap: 10px 12px;
+  }
+
+  .navbar-links a,
+  .signed-in-button {
+    font-size: 13px;
+  }
 }

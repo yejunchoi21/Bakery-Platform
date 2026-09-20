@@ -1,6 +1,11 @@
 import "./Cart.css";
 
-function Cart({cartItems, increaseQuantity, decreaseQuantity, }) {
+function Cart({
+  cartItems,
+  increaseQuantity,
+  decreaseQuantity,
+  handleCheckout,
+}) {
   // Adds the prices of all products in the cart
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -32,25 +37,24 @@ function Cart({cartItems, increaseQuantity, decreaseQuantity, }) {
 
                 <div className="cart-item-info">
                   <h2>{item.name}</h2>
-                <div className="quantity-controls">
-                  <button
-                    type="button"
-                    onClick={() => decreaseQuantity(item.id)}
-                  >
-                    -
-                  </button>
 
-                  <span>{item.quantity}</span>
+                  <div className="quantity-controls">
+                    <button
+                      type="button"
+                      onClick={() => decreaseQuantity(item.id)}
+                    >
+                      −
+                    </button>
 
-                  <button
-                    type="button"
-                    onClick={() => increaseQuantity(item.id)}
-                  >
-                    +
-                  </button>
-</div>
+                    <span>{item.quantity}</span>
 
-
+                    <button
+                      type="button"
+                      onClick={() => increaseQuantity(item.id)}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
 
                 <p className="cart-item-price">
@@ -79,7 +83,11 @@ function Cart({cartItems, increaseQuantity, decreaseQuantity, }) {
             <span>${total.toFixed(2)}</span>
           </div>
 
-          <button type="button" disabled={cartItems.length === 0}>
+          <button
+            type="button"
+            onClick={handleCheckout}
+            disabled={cartItems.length === 0}
+          >
             Proceed to Checkout
           </button>
         </aside>

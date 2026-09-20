@@ -29,7 +29,7 @@ function App() {
   // Stores the signed-in user's cart
   const [cartItems, setCartItems] = useState([]);
 
-  // Stores the add-to-cart notification
+  // Stores temporary notifications
   const [cartMessage, setCartMessage] = useState("");
 
   // Checks for login and logout changes
@@ -48,7 +48,7 @@ function App() {
     };
   }, []);
 
-  // Loads the signed-in user's cart
+  // Loads the signed-in user's cart from Supabase
   useEffect(() => {
     async function loadCart() {
       if (!user) {
@@ -80,13 +80,13 @@ function App() {
     loadCart();
   }, [user]);
 
-  // Shows a temporary message after adding a product
-  function showCartMessage(productName) {
-    setCartMessage(`${productName} added to cart!`);
+  // Shows a temporary message
+  function showMessage(message) {
+    setCartMessage(message);
 
     setTimeout(() => {
       setCartMessage("");
-    }, 2500);
+    }, 3000);
   }
 
   // Adds a product or increases its quantity
@@ -124,7 +124,7 @@ function App() {
         )
       );
 
-      showCartMessage(product.name);
+      showMessage(`${product.name} added to cart!`);
     } else {
       const newItem = {
         id: productId,
@@ -155,7 +155,7 @@ function App() {
         newItem,
       ]);
 
-      showCartMessage(product.name);
+      showMessage(`${product.name} added to cart!`);
     }
   }
 
@@ -242,6 +242,26 @@ function App() {
     }
   }
 
+  // Completes checkout and clears the user's cart
+  async function handleCheckout() {
+    if (!user || cartItems.length === 0) {
+      return;
+    }
+
+    const { error } = await supabase
+      .from("cart_items")
+      .delete()
+      .eq("user_id", user.id);
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    setCartItems([]);
+    showMessage("Order placed successfully!");
+  }
+
   return (
     <BrowserRouter>
       <Navbar user={user} />
@@ -269,6 +289,7 @@ function App() {
               cartItems={cartItems}
               increaseQuantity={increaseQuantity}
               decreaseQuantity={decreaseQuantity}
+              handleCheckout={handleCheckout}
             />
           }
         />

@@ -2,30 +2,36 @@
   min-height: 550px;
   display: flex;
   align-items: center;
-  /*padding adds spacing. so top and bottom 60px space
-  left right 8% spacing*/
-  padding: 60px 8%;
+  gap: clamp(30px, 5vw, 80px);
+
+  /* Padding becomes smaller with the screen */
+  padding: clamp(35px, 5vw, 60px) clamp(20px, 8vw, 150px);
+
   background-color: #f4e5d5;
-  
+  box-sizing: border-box;
 }
 
-/*used to grow or shrink the container as window resizes*/
+/* Left side containing the writing */
 .hero-content {
   flex: 1;
+  min-width: 0;
   max-width: 600px;
 }
 
 .hero-content p {
   margin: 0 0 15px;
   color: #a45c3a;
-  font-size: 18px;
+  font-size: clamp(16px, 1.5vw, 18px);
 }
 
 .hero-content h2 {
   margin: 0 0 25px;
   color: #3d302a;
   font-family: Georgia, serif;
-  font-size: 52px;
+
+  /* Heading shrinks as the screen becomes smaller */
+  font-size: clamp(36px, 4vw, 52px);
+
   line-height: 1.15;
 }
 
@@ -42,29 +48,73 @@
   background-color: #92563c;
 }
 
-/*KEY NOTE must edit the container. onyl the
-you can edit the content within the container*/
+/* Right-side image container */
 .hero-image {
-  /*the container of the img not the img itself can resize
-  base on the window size*/
-  /*flex helps resize the image with the hero-content section. so use it when image is paired with writing horizontally*/
   flex: 1;
-  /*pairs flex with this */
   min-width: 0;
-  /*this is what allows you to position the img in the container*/
   display: flex;
-  /*pushes image to the right edge of container*/
   justify-content: flex-end;
-
 }
 
+/* The actual image */
 .hero-image img {
   display: block;
-  height: auto;
+
+  /* Image fills its available container */
   width: 100%;
-  height: auto;
-  /*make the actual image fit the container above*/
+
+  /* Stops it from becoming excessively large */
+  max-width: 800px;
+
+  /* Keeps a consistent image shape */
+  aspect-ratio: 3 / 2;
+
   object-fit: cover;
+  box-sizing: border-box;
+  border: clamp(5px, 0.7vw, 10px) solid #efd699;
   border-radius: 16px;
-  border: 10px solid #efd699;
+}
+
+/* Tablet and phone screens */
+@media (max-width: 850px) {
+  .hero {
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero-image {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 700px;
+  }
+}
+
+/* Small phone screens */
+@media (max-width: 500px) {
+  .hero {
+    padding: 35px 20px;
+    gap: 30px;
+  }
+
+  .hero-content h2 {
+    font-size: 34px;
+  }
+
+  .hero-content a {
+    padding: 12px 20px;
+  }
+
+  .hero-image img {
+    border-radius: 10px;
+  }
 }
